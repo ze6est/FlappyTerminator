@@ -12,13 +12,13 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Terminator
+  - Enemie
+  - Lava
+  - TerminatorBullet
+  - EnemieBullet
+  - BulletsDestroyer
+  - EnemiesDestroyer
   - 
   - 
   - 
