@@ -1,8 +1,17 @@
 ﻿namespace Assets.FlappyTerminator.CodeBase.Infrastructure.AssetManagement
 {
-    public interface IState
+    public interface IState : IExitableState
     {
-        void Enter();
+        void Enter();        
+    }
+
+    public interface IPayloadedState<TPayload> : IExitableState
+    {
+        void Enter(TPayload payload);        
+    }
+
+    public interface IExitableState
+    {
         void Exit();
     }
 }

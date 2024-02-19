@@ -17,17 +17,17 @@ namespace Assets.FlappyTerminator.CodeBase.Infrastructure.AssetManagement
         public void Load(string name, Action onLoaded = null) => 
             _coroutineRunner.StartCoroutine(LoadScene(name, onLoaded));
 
-        private IEnumerator LoadScene(string name, Action onLoaded = null)
+        private IEnumerator LoadScene(string nextScenename, Action onLoaded = null)
         {
-            if(SceneManager.GetActiveScene().name == name)
+            if(SceneManager.GetActiveScene().name == nextScenename)
             {
                 onLoaded?.Invoke();
                 yield break;
             }
 
-            AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(name);
+            AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextScenename);
 
-            while (waitNextScene.isDone)
+            while (!waitNextScene.isDone)
                 yield return null;
             
             onLoaded?.Invoke();

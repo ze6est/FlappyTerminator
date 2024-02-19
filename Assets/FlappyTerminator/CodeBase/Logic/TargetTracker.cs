@@ -9,9 +9,15 @@ namespace Assets.FlappyTerminator.CodeBase
 
         private void LateUpdate()
         {
-            Vector3 position = transform.position;
-            position.x = _target.position.x + _offsetX;
-            transform.position = position;
+            if (_target != null)
+            {
+                Vector3 position = transform.position;
+                position.x = _target.position.x + _offsetX;
+                transform.position = position;
+            }            
         }
+
+        public void Follow(GameObject target) => 
+            _target = target.transform;
     }
 }

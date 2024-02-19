@@ -33,7 +33,7 @@ namespace Assets.FlappyTerminator.CodeBase.Infrastructure.AssetManagement
         }
 
         private void EnterLoadLevel() => 
-            _gameStateMachine.Enter<LoadLevelState>();
+            _gameStateMachine.Enter<LoadLevelState, string>("Game");
 
         private static IInputService RegisterInputService()
         {

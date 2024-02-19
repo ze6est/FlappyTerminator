@@ -1,4 +1,5 @@
-﻿using Assets.FlappyTerminator.CodeBase.Services.Inputs;
+﻿using Assets.CodeBase.Logic;
+using Assets.FlappyTerminator.CodeBase.Services.Inputs;
 
 namespace Assets.FlappyTerminator.CodeBase.Infrastructure.AssetManagement
 {
@@ -8,9 +9,9 @@ namespace Assets.FlappyTerminator.CodeBase.Infrastructure.AssetManagement
 
         public GameStateMachine GameStateMachine;
 
-        public Game(ICoroutineRunner coroutineRunner) 
+        public Game(ICoroutineRunner coroutineRunner, LoadingCurtain curtain) 
         {
-            GameStateMachine = new GameStateMachine(new SceneLoader(coroutineRunner));
+            GameStateMachine = new GameStateMachine(new SceneLoader(coroutineRunner), curtain);
         }
     }
 }
